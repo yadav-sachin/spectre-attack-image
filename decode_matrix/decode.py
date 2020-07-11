@@ -2,8 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import time
 import cv2
+
 prev_data = [0]
-shape = (1130, 928, 3)
+shp = [int(i) for i in input('Enter the dimensions of the Image: ').split()]
+assert(len(shp) == 2)
+shape = (shp[0], shp[1], 3)
+
 while True:
     tot_len = shape[0]*shape[1]*shape[2]
     fs = open('../spectre_output.txt', 'r')

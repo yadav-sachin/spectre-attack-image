@@ -2,7 +2,11 @@ import cv2
 import matplotlib.pyplot as plt
 fs = open('../encodedImg.bin', 'w')
 
-img = cv2.imread('secret_img2.jpg')
+imgFileName = input('Enter the target Image file name: ').strip()
+if len(imgFileName) == 0:
+    imgFileName = 'secret_img.jpg'
+
+img = cv2.imread(imgFileName)
 
 shape = img.shape
 
@@ -14,7 +18,7 @@ for i in range(shape[0]):
         for k in range(shape[2]):
             data += chr(img[i][j][k]//2)
 
-print(shape)
+print(f'Image Dimensions : {shape[0]} x {shape[1]}')
+print('Image Successfully Encoded in RGBA !!')
 fs.write(data)
 fs.close()
-
