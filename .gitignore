@@ -2,3 +2,5 @@
 *.txt
 *.bin
 .vscode
+decode/node_modules/
+encode/node_modules/
