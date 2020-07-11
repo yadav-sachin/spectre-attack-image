@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import time
 import cv2
 prev_data = [0]
-shape = (80, 80, 3)
+shape = (1130, 928, 3)
 while True:
     tot_len = shape[0]*shape[1]*shape[2]
     fs = open('../spectre_output.txt', 'r')
