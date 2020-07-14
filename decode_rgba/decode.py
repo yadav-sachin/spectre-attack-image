@@ -25,7 +25,7 @@ while True:
                 counter+=1
 
     cv2.imwrite('secret.jpg', img_arr)
-    time.sleep(2)
+    time.sleep(20)
     if(prev_data == img_data): 
         break
     prev_data = img_data

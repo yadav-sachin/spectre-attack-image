@@ -1,12 +1,13 @@
 import cv2
 import matplotlib.pyplot as plt
-fs = open('../encodedImg.bin', 'w')
+fs = open('../encodedImg.txt', 'w')
 
 imgFileName = input('Enter the target Image file name: ').strip()
 if len(imgFileName) == 0:
     imgFileName = 'secret_img.jpg'
-
+    
 img = cv2.imread(imgFileName)
+print('Processing File ... \n')
 
 shape = img.shape
 
