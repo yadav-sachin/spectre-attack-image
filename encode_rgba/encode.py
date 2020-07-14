@@ -1,6 +1,6 @@
 import cv2
 import matplotlib.pyplot as plt
-fs = open('../encodedImg.txt', 'w')
+fs = open('../encodedImg.bin', 'w')
 
 imgFileName = input('Enter the target Image file name: ').strip()
 if len(imgFileName) == 0:

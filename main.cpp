@@ -45,11 +45,11 @@ Attacking Program
 
 /*** Parameters and Global Variables for Attacking Program */
 const int CACHE_HIT_THRESHOLD = 80; // Assume that the memory address is in Cache, if time is <= CACHE_HIT_THRESHOLD
-const int IMP_TRIES = 100;
+const int IMP_TRIES = 125;
 int NUM_TRIES = IMP_TRIES;
-const int NORMAL_TRIES = 100;                // The task of attacking and analysing is done NUM_TRIES times, then score is prepared for each character out of NUM_TRIES
-const int TRAINING_LOOPS = 30;               //The number of training loops (mistraing loops + attacking loops)
-const int ATTACK_LEAP = 5;                   // 1 in every ATTACK_LEAP of the TRAINING_LOOPS will be an attacking loop i.e. mistraining_loops = (TRAINING_LOOPS)/ATTACK_LEAP
+const int NORMAL_TRIES = 125;                // The task of attacking and analysing is done NUM_TRIES times, then score is prepared for each character out of NUM_TRIES
+const int TRAINING_LOOPS = 40;               //The number of training loops (mistraing loops + attacking loops)
+const int ATTACK_LEAP = 8;                   // 1 in every ATTACK_LEAP of the TRAINING_LOOPS will be an attacking loop i.e. mistraining_loops = (TRAINING_LOOPS)/ATTACK_LEAP
 const int INBETWEEN_DELAY = 100;             // The number of delay cycles between successive training loops
 int LIKELY_THRESHOLD = int(0.6 * NUM_TRIES); // I assume that the characters with more than 70% hit rate are in the SECRET
 int ATTACK_PATTERN[256];                     // Instead of going in sequence of ascii characters A -> B -> C -> D ... , I have randomized the attack pattern likeidx -> C -> A -> M ... (random)

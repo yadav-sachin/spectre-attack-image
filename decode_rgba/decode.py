@@ -5,8 +5,10 @@ import cv2
 
 prev_data = [0]
 shp = [int(i) for i in input('Enter the dimensions of the Image: ').split()]
-assert(len(shp) == 2)
+if len(shp) < 2:
+    shp = [80, 80]
 shape = (shp[0], shp[1], 3)
+print(' Processing Image \n')
 
 while True:
     tot_len = shape[0]*shape[1]*shape[2]
@@ -22,10 +24,10 @@ while True:
         for j in range(shape[1]):
             for k in range(shape[2]):
                 img_arr[i][j][k] = img_data[counter]
-                counter+=1
+                counter += 1
 
     cv2.imwrite('secret.jpg', img_arr)
-    time.sleep(20)
-    if(prev_data == img_data): 
+    time.sleep(1)
+    if(prev_data == img_data):
         break
     prev_data = img_data
