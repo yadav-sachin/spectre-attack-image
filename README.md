@@ -63,7 +63,7 @@ Here in this project, I have implemented to retrieve image buffer data in a prog
    ```
 
 ## Results
-### Reconstructing an Image using spectre    
+### Retrieving Image using spectre    
   [![Demo Video Youtube](./screenshots/yt_video.png)](https://youtu.be/tjav955c_vc)
 ### Original Image
   <img src="screenshots/original.jpg" alt="Original" width="464" height="565"/>    
