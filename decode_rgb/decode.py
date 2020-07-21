@@ -8,7 +8,7 @@ shp = [int(i) for i in input('Enter the dimensions of the Image: ').split()]
 if len(shp) < 2:
     shp = [80, 80]
 shape = (shp[0], shp[1], 3)
-print(' Processing Image \n')
+print(' Processing Image ...\n')
 
 while True:
     tot_len = shape[0]*shape[1]*shape[2]
@@ -29,5 +29,6 @@ while True:
     cv2.imwrite('secret.jpg', img_arr)
     time.sleep(1)
     if(prev_data == img_data):
+        print('Image Complete.')
         break
     prev_data = img_data
