@@ -2,8 +2,8 @@
 *.txt
 *.bin
 .vscode
-decode/node_modules/
-encode/node_modules/
+decode_base64/node_modules/
+encode_base64/node_modules/
 *.db
 *.mkv
 debugging
