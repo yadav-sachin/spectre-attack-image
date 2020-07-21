@@ -7,3 +7,4 @@ encode_base64/node_modules/
 *.db
 *.mkv
 debugging
+spectre
