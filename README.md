@@ -63,14 +63,16 @@ Here in this project, I have implemented to retrieve image buffer data in a prog
    ```
 
 ## Results
-- Reconstructing an Image using spectre    
+### Reconstructing an Image using spectre    
   [![Demo Video Youtube](./screenshots/yt_video.png)](https://youtu.be/tjav955c_vc)
-- **Original Image**
-  ![Original](screenshots/original.jpg)
-- **Spectre Output**
-  ![Output](screenshots/output.jpg)
-- **Output after Median filter radius = 5**
-  ![Output](screenshots/median5.jpg)
+### Original Image
+  <img src="screenshots/original.jpg" alt="Original" width="464" height="565"/>    
+
+### Spectre Output
+  <img src="screenshots/output.jpg" alt="Output" width="464" height="565"/>   
+   
+### Output after Median filter radius = 5
+  <img src="screenshots/median5.jpg" alt="Median Filter Output" width="464" height="565"/>    
 
 ## Resources for Spectre Attack
 
