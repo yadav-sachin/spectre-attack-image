@@ -64,8 +64,13 @@ Here in this project, I have implemented to retrieve image buffer data in a prog
 
 ## Results
 - Reconstructing an Image using spectre    
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/tjav955c_vc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+  [![Demo Video Youtube](./screenshots/yt_video.png)](https://youtu.be/tjav955c_vc)
+- **Original Image**
+  ![Original](screenshots/original.jpg)
+- **Spectre Output**
+  ![Output](screenshots/output.jpg)
+- **Output after Median filter radius = 5**
+  ![Output](screenshots/median5.jpg)
 
 ## Resources for Spectre Attack
 
